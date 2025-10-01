@@ -26,7 +26,7 @@ github_username:  roro3847may
 
 # Build settings
 theme: minima
-
+timezone: Asia/Seoul
 
 # Exclude from processing.
 # The following items will not be processed, by default.
