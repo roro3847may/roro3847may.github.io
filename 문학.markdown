@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 문학
+permalink: /categories/literature/
 ---
 
 <h1>문학 글</h1>

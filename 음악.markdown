@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 음악
+permalink: /categories/music/
 ---
 
 <h1>음악 글</h1>

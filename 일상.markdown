@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 일상
+permalink: /categories/daily/
 ---
 
 <h1>일상 글</h1>

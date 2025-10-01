@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 코딩
+permalink: /categories/code/
 ---
 
 <h1>코딩 글</h1>

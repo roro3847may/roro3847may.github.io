@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 전체
+permalink: /all/
 ---
 
 <h1>전체 글</h1>

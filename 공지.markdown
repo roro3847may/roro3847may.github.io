@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 공지
+permalink: /categories/notice/
 ---
 
 <h1>공지 글</h1>
