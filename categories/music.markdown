@@ -18,7 +18,7 @@ permalink: /categories/music/
     {% for post in music_posts %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span>
+        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d %H:%M" }})</span>
       </li>
     {% endfor %}
   {% else %}
@@ -33,7 +33,7 @@ permalink: /categories/music/
     {% for post in old_posts %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span>
+        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d %H:%M" }})</span>
       </li>
     {% endfor %}
   </ul>

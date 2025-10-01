@@ -16,7 +16,7 @@ permalink: /categories/notice/
   {% if notice_posts and notice_posts.size > 0 %}
     {% for post in notice_posts %}
       <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span></li>
+      <span style="color:#888;">({{ post.date | date: "%Y-%m-%d %H:%M" }})</span></li>
     {% endfor %}
   {% else %}
     <li style="color:#888;">공지 카테고리에 글이 아직 없어요.</li>
@@ -28,7 +28,7 @@ permalink: /categories/notice/
   <ul id="list-old" style="display:none;">
     {% for post in old_posts %}
       <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span></li>
+      <span style="color:#888;">({{ post.date | date: "%Y-%m-%d %H:%M" }})</span></li>
     {% endfor %}
   </ul>
 {% else %}
