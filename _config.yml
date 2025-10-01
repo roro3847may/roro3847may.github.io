@@ -19,7 +19,6 @@
 # in the templates via {{ site.myvariable }}.
 
 title: 로로
-email: roroyh47@gmail.com
 description: roro
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://username.github.io" # the base hostname & protocol for your site, e.g. http://example.com
