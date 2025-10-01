@@ -19,7 +19,7 @@ permalink: /all/
     {% for post in all_posts %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span style="color:#888;">({{ post.date | date_to_xmlschema }})</span>
+        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span>
         {% if post.categories and post.categories.size > 0 %}
           <span style="margin-left:.5rem; color:#666;">
             — {{ post.categories | join: ", " }}
@@ -39,7 +39,7 @@ permalink: /all/
     {% for post in old_posts %}
       <li>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        <span style="color:#888;">({{ post.date | date_to_xmlschema }})</span>
+        <span style="color:#888;">({{ post.date | date: "%Y-%m-%d" }})</span>
         {% if post.categories and post.categories.size > 0 %}
           <span style="margin-left:.5rem; color:#666;">
             — {{ post.categories | join: ", " }}
