@@ -1,4 +1,3 @@
-
 // === 댓글 기능 (Firestore: comments/{slug}/items) ===
 (function(){
   function slugFromUrl(u){
@@ -27,9 +26,9 @@
 
     const form = document.getElementById("comment-form");
     const list = document.getElementById("comment-list");
+
     async function load(){
-      // 최신순
-      list.innerHTML = "<li>불러오는 중...</li>";
+      list.innerHTML = "<li style='color:#777;'>불러오는 중...</li>";
       const q = query(collection(db, "comments", slug, "items"), orderBy("createdAt","desc"));
       const snap = await getDocs(q);
       const rows = [];
@@ -43,11 +42,13 @@
           <div style="white-space:pre-wrap;">${escapeHtml(body)}</div>
         </li>`);
       });
-      list.innerHTML = rows.join("") || "<li>첫 댓글을 남겨 보세요!</li>";
+      list.innerHTML = rows.join("") || "<li style='color:#777;'>첫 댓글을 남겨 보세요!</li>";
     }
+
     function escapeHtml(s){
-      return s.replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;",""":"&quot;","'":"&#39;" }[m]));
+      return s.replace(/[&<>"']/g, m=>({ "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[m]||m));
     }
+
     form?.addEventListener("submit", async (e)=>{
       e.preventDefault();
       const name = (document.getElementById("comment-name").value||"").trim() || "익명";
@@ -57,11 +58,11 @@
         await addDoc(collection(db, "comments", slug, "items"), {
           name, body, createdAt: serverTimestamp()
         });
-        (document.getElementById("comment-body").value = "");
+        document.getElementById("comment-body").value = "";
         await load();
       }catch(e){
-        alert("댓글 저장 중 오류가 발생했습니다.");
         console.error(e);
+        alert("댓글 저장 실패");
       }
     });
     await load();
