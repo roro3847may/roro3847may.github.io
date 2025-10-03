@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>rorogame</title>
+  <script>
+    (function () {
+      const ua = navigator.userAgent;
+      const isMobileUA = /Android|iPhone|iPad|iPod|Windows Phone|Mobi/i.test(ua);
+      const isCoarse = window.matchMedia && window.matchMedia("(pointer:coarse)").matches;
+      if (isMobileUA || isCoarse) {
+        location.replace("./mobile.html");
+      }
+    })();
+  </script>
+  <style>
+    body {margin:0; font-family:sans-serif; background:#0f1115; color:#eee;}
+    header {padding:2rem 1rem; text-align:center;}
+    h1 {margin:0; font-size:2rem;}
+    p.lead {opacity:.8; margin:.5rem 0 0;}
+    .grid {display:grid; gap:16px; padding:16px;
+           grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+           max-width:1100px; margin:0 auto;}
+    .card {background:#171a21; border:1px solid #2a2f3a;
+           border-radius:12px; overflow:hidden; transition:.15s;}
+    .card:hover {transform:translateY(-3px); border-color:#3b82f6;}
+    .thumb {aspect-ratio:16/9; width:100%; object-fit:cover; display:block; background:#000;}
+    .meta {padding:12px;}
+    .title {margin:0 0 6px; font-weight:700;}
+    small {opacity:.7;}
+    .card a {color:inherit; text-decoration:none;}
+    footer {opacity:.6; text-align:center; margin:2rem 0;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>rorogame</h1>
+    <p class="lead">🎮 Let's play game~</p>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    © <span id="year"></span> made by roro
+  </footer>
+
+  <script>
+    const games = [
+      {
+        id: "clickgame",
+        name: "Clicy",
+        path: "./game/clickgame/",
+        thumb: "./game/clickgame/cover.jpg",
+        desc: "Click WhiteSqure & RedCircle (GoldRush!)"
+      },
+      {
+        id: "jetpacky",
+        name: "Jetpacky",
+        path: "./game/jetpacky/",
+        thumb: "./game/jetpacky/cover.jpg",
+        desc: "Z,X or Click! (I Love Gold!)"
+      },
+      {
+        id: "squarepunch",
+        name: "Punchy",
+        path: "./game/squarepunch/",
+        thumb: "./game/squarepunch/cover.jpg",
+        desc: "Just Click To Get Gold!"
+      }
+    ];
+
+    const grid = document.getElementById('grid');
+    grid.innerHTML = games.map(g => `
+      <article class="card">
+        <a href="${g.path}">
+          <img class="thumb" src="${g.thumb}" alt="${g.name}" onerror="this.style.display='none'">
+          <div class="meta">
+            <h3 class="title">${g.name}</h3>
+            <small>${g.desc}</small>
+          </div>
+        </a>
+      </article>
+    `).join('');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
